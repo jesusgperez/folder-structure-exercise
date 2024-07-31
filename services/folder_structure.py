@@ -37,13 +37,23 @@ class FolderStructure:
         to_path = self.command[2]
 
         from_folder = self.find_folder(path=from_path)
-        to_folder = self.find_folder(path=to_path)
-
         from_key = from_path.split('/')[-1]
+
+        if to_path == '/':
+            to_folder = self.tree
+        else:
+            to_folder = self.find_folder(path=to_path)
+            to_key = to_path.split('/')[-1]
+
         buffer = from_folder[from_key]
         del from_folder[from_key]
 
+        if to_path != '/':
+            to_folder[to_key][from_key] = buffer
+            return
+
         to_folder[from_key] = buffer
+        
 
     def delete(self) -> None:
         path = self.command[1]

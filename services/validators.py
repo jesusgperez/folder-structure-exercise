@@ -6,6 +6,9 @@ from typing import List
 class BaseValidator:
     @classmethod
     def validate_path(cls, path: str) -> bool:
+        if path == '/':
+            return True
+
         if not re.match(pattern=VALID_PATH_REGEX, string=path):
             print(f'Invalid path: {path}')
             return False

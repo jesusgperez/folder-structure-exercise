@@ -48,5 +48,5 @@ if __name__ == '__main__':
 
         try:
             structure.execute()
-        except KeyError:
-            print('No such directory')
+        except KeyError as e:
+            print(f'No such directory {str(e)}')

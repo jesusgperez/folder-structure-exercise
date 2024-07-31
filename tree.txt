@@ -1,1 +1,1 @@
-{"root": {"project": {"directory": {}}, "ipad": {"diagram": {}}}}
+{"root": {"project": {"directory": {}}}, "etc": {}, "ipad": {"diagram": {}}}
