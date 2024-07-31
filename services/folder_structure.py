@@ -1,6 +1,6 @@
 import json
 from typing import Dict, List
-from data import CommandOptions, STORAGE_FILE
+from data import CommandOptions, STORAGE_FILE, INDENT_SIZE
 
 
 class FolderStructure:
@@ -11,7 +11,7 @@ class FolderStructure:
     ) -> None:
         self.tree = tree
         self.command = command
-        self.indent = 2
+        self.indent = INDENT_SIZE
 
     def find_folder(self, path: str) -> Dict:
         keys = path.split('/')
@@ -26,7 +26,12 @@ class FolderStructure:
     def create(self) -> None:
         path = self.command[1]
         keys = path.split('/')
-        update_tree = self.find_folder(path=path)
+        try:
+            update_tree = self.find_folder(path=path)
+        except KeyError as e:
+            print('Cannot create the folder')
+            raise e
+
         update_tree[keys[-1]] = {}
 
 
@@ -67,13 +72,18 @@ class FolderStructure:
             to_folder[to_key][from_key] = buffer
             return
 
-        to_folder[from_key] = buffer
-        
+        to_folder[from_key] = buffer        
 
     def delete(self) -> None:
         path = self.command[1]
         keys = path.split('/')
-        delete_tree = self.find_folder(path=path)
+
+        try:
+            delete_tree = self.find_folder(path=path)
+        except KeyError as e:
+            print('Cannot delete the folder')
+            raise e
+
         del delete_tree[keys[-1]]
 
 

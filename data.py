@@ -6,6 +6,8 @@ VALID_PATH_REGEX = r'^([^/]+(?:/[^/]+)*)$'
 
 STORAGE_FILE = 'tree.txt'
 
+INDENT_SIZE = 2
+
 class CommandOptions(Enum):
     CREATE = 'CREATE'
     LIST = 'LIST'
