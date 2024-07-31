@@ -11,6 +11,7 @@ class FolderStructure:
     ) -> None:
         self.tree = tree
         self.command = command
+        self.indent = 2
 
     def find_folder(self, path: str) -> Dict:
         keys = path.split('/')
@@ -30,7 +31,21 @@ class FolderStructure:
 
 
     def list(self) -> None:
-        print(self.tree)
+        return self._list_recursive(
+            tree=self.tree, indent=self.indent
+        )
+
+    def _list_recursive(self, tree: Dict, indent: int):
+        if not tree:
+            return
+
+        str_indent = ' ' * indent
+
+        for key in tree.keys():
+            print(f'{str_indent}{key}')
+            self._list_recursive(
+                tree=tree[key], indent=self.indent + indent
+            )
 
     def move(self) -> None:
         from_path = self.command[1]
@@ -98,7 +113,6 @@ class PersistanceManager:
     def load(self) -> FolderBuilder:
         with open(STORAGE_FILE, 'r') as f:
             content = f.readline()
-            print(content)
             tree = json.loads(content or b'{}')
 
         self.builder.add_tree(tree=tree)

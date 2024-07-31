@@ -57,7 +57,6 @@ class CommandValidator(BaseValidator):
         return True
 
     def create_delete_validate(self) -> bool:
-        print('create')
         if not self.validate_command_length(command=self.clean_command, length=2):
             return False
 
