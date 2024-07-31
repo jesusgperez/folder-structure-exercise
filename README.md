@@ -8,11 +8,29 @@ In the command console type the following command:
   * python3 main.py
 
 And this will start the application, you are going to have 5 options:
-    * CREATE <path>: Creates a new folder
-    * LIST: Lists the current folder structure
-    * MOVE <path_from> <path_to>: Moves a given folder to another place
-    * DELETE <path>: Deletes a given folder
-    * EXIT: exit the application
+  * CREATE <path>: Creates a new folder
+  * LIST: Lists the current folder structure
+  * MOVE <path_from> <path_to>: Moves a given folder to another place
+  * DELETE <path>: Deletes a given folder
+  * EXIT: exit the application
+
+If the program should read this instructions and process them just as the example input given in the task:
+  * CREATE fruits
+  * CREATE vegetables
+  * CREATE grains
+  * CREATE fruits/apples
+  * CREATE fruits/apples/fuji
+  * LIST
+  * CREATE grains/squash
+  * MOVE grains/squash vegetables
+  * CREATE foods
+  * MOVE grains foods
+  * MOVE fruits foods
+  * MOVE vegetables foods
+  * LIST
+  * DELETE fruits/apples
+  * DELETE foods/fruits/apples
+  * LIST
 
 The program will guide you through the process and will tell you whether a path is valid or not in the application and whether there is a directory or not
 

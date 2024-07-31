@@ -16,7 +16,7 @@ if __name__ == '__main__':
             DELETE <path>: Deletes a given folder
             EXIT: exit the application
           ''')
-    
+
     command = ''
 
     command_options = CommandOptions.list()
