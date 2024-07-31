@@ -14,7 +14,7 @@ And this will start the application, you are going to have 5 options:
     * DELETE <path>: Deletes a given folder
     * EXIT: exit the application
 
-The program will guide you through the process and will tell you whether a path is valid or not in the application
+The program will guide you through the process and will tell you whether a path is valid or not in the application and whether there is a directory or not
 
 ## Structure
 It uses a validators objects to validate the input data from the command line

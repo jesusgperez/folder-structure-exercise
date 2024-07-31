@@ -68,11 +68,11 @@ class FolderStructure:
         buffer = from_folder[from_key]
         del from_folder[from_key]
 
-        if to_path != '/':
-            to_folder[to_key][from_key] = buffer
+        if to_path == '/':
+            to_folder[from_key] = buffer        
             return
 
-        to_folder[from_key] = buffer        
+        to_folder[to_key][from_key] = buffer
 
     def delete(self) -> None:
         path = self.command[1]
