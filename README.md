@@ -34,6 +34,8 @@ If the program should read this instructions and process them just as the exampl
 
 The program will guide you through the process and will tell you whether a path is valid or not in the application and whether there is a directory or not
 
+Also, the program will persist the data from session to session, that means you can exit from the app with the EXIT command and when you execute it again the state of the folder structure will remain. This persistance is saved in the tree.txt file.
+
 ## Structure
 It uses a validators objects to validate the input data from the command line
 
