@@ -77,20 +77,20 @@ def test__file_structure__delete(path, folder_structure):
     ]
 )
 def test__file_structure__move(from_to, folder_structure):
-    folder_structure.command = [CommandOptions.DELETE, *from_to]
+    folder_structure.command = [CommandOptions.MOVE, *from_to]
 
     folder_structure.execute()
 
-    obj = from_to[0].split('/')
+    from_chain = from_to[0].split('/')
 
-    chain = from_to[1].split('/')
+    to_chain = from_to[1].split('/')
 
     sub_folder = folder_structure.tree
 
-    for folder in chain:
+    for folder in to_chain:
         sub_folder = sub_folder[folder]
 
-    assert obj[-1] not in sub_folder
+    assert from_chain[-1] in sub_folder
 
 
 
