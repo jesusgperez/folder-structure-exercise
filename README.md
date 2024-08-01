@@ -36,6 +36,7 @@ The program will guide you through the process and will tell you whether a path 
 
 Also, the program will persist the data from session to session, that means you can exit from the app with the EXIT command and when you execute it again the state of the folder structure will remain. This persistance is saved in the tree.txt file.
 
+
 ## Structure
 It uses a validators objects to validate the input data from the command line
 
@@ -44,3 +45,17 @@ There is an implementation of Builder design pattern for the Folder Structure ob
 As well to preserve the Single Responsibility principle I created a different object to persist the data in a file that's called: tree.txt
 
 In data there are some variables that server as setting variables and an object to model the command options
+
+
+## Tests
+To run the tests create the environment and in the terminal execute the following command:
+  * pytest
+
+That will run the tests
+
+
+## Environment
+Create a virtual environment with the following commands:
+  * python3-[version] -m venv venv
+  * source venv/bin/activate
+  * pip install -r requirements
